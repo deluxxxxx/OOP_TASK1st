@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Автомобиль клиента.
- * Ключ равенства — VIN (Vehicle Identification Number).
+ * Ключ равенства - VIN (Vehicle Identification Number).
  */
 public class Car {
 
@@ -49,7 +49,7 @@ public class Car {
     }
 
     /**
-     * Равенство по VIN — два автомобиля с одинаковым VIN считаются одним и тем же,
+     * Равенство по VIN - два автомобиля с одинаковым VIN считаются одним и тем же,
      * даже если марка, модель или владелец отличаются (например, сменился владелец).
      */
     @Override

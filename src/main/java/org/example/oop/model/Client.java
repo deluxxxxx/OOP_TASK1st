@@ -6,7 +6,7 @@ import java.util.Objects;
  * Клиент автосервиса
  * Ключ равенства - id
  */
-public class Client {
+public class Client implements Identifiable {
 
     private final Long id;
     private final String fullName;
