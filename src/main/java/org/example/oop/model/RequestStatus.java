@@ -24,6 +24,7 @@ public enum RequestStatus {
         this.description = description;
     }
 
+    /** Геттер описания работы */
     public String getDescription() {
         return description;
     }
@@ -47,7 +48,7 @@ public enum RequestStatus {
             case ISSUED, CANCELLED -> false;
         };
     }
-
+    /** Строковое представление описания статуса */
     @Override
     public String toString() {
         return description;

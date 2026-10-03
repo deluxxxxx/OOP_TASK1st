@@ -13,6 +13,7 @@ public class Car {
     private final String model;
     private final Client owner;
 
+    /** Конструктор машины (создание) */
     public Car(String vin, String brand, String model, Client owner) {
         if (vin == null || vin.isBlank()) {
             throw new IllegalArgumentException("VIN не может быть пустым");
@@ -32,18 +33,22 @@ public class Car {
         this.owner = owner;
     }
 
+    /** Геттер вин-номера машины */
     public String getVin() {
         return vin;
     }
 
+    /** Геттер марки машины */
     public String getBrand() {
         return brand;
     }
 
+    /** Геттер модели машины */
     public String getModel() {
         return model;
     }
 
+    /** Геттер владельца машины */
     public Client getOwner() {
         return owner;
     }
@@ -59,12 +64,12 @@ public class Car {
         Car car = (Car) o;
         return Objects.equals(vin, car.vin);
     }
-
+    /** Хеш-код по vin */
     @Override
     public int hashCode() {
         return Objects.hash(vin);
     }
-
+    /** Строковое представление машины */
     @Override
     public String toString() {
         return brand + " " + model + " (VIN: " + vin + ")";

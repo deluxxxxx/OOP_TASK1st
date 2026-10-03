@@ -8,6 +8,9 @@ package org.example.oop.model;
  */
 public record Work(String name, double price, double standardHours) {
 
+    /**
+     * Конструктор (создание) работы (после создания изменить нельзя - record)
+     */
     public Work {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Имя работы не может быть пустым");

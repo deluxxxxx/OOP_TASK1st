@@ -12,6 +12,9 @@ public class Client implements Identifiable {
     private final String fullName;
     private final String phone;
 
+    /**
+     * Создание клиента(конструктор)
+     */
     public Client(Long id, String fullName, String phone) {
         if (id == null) {
             throw new IllegalArgumentException("ID клиента не может быть пустым");
@@ -27,14 +30,23 @@ public class Client implements Identifiable {
         this.phone = phone;
     }
 
+    /**
+     * Геттер id клиента
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Геттер полного имени (ФИО) клиента
+     */
     public String getFullName() {
         return fullName;
     }
 
+    /**
+     * Геттер номера телефона клиента
+     */
     public String getPhone() {
         return phone;
     }
@@ -52,11 +64,17 @@ public class Client implements Identifiable {
         return Objects.equals(id, client.id);
     }
 
+    /**
+     * Хеш-код на основе id
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
 
+    /**
+     * Строковое представление клиента
+     */
     @Override
     public String toString() {
         return "Client{id=" + id + ", name='" + fullName + "', phone='" + phone + "'}";

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/** Класс запроса работы, который реализовывает класс Identifiable */
 public class RepairRequest implements Identifiable {
 
     private final Long id;
@@ -17,6 +18,7 @@ public class RepairRequest implements Identifiable {
     private LocalDate actualIssueDate;
     private final List<Work> works = new ArrayList<>();
 
+    /** Конструктор запроса на ремонт */
     public RepairRequest(Long id, Car car, LocalDate promisedDate) {
         if (id == null) {
             throw new IllegalArgumentException("ID заявки не может отсутствовать");
@@ -88,6 +90,7 @@ public class RepairRequest implements Identifiable {
         return works.stream().mapToDouble(Work::price).sum();
     }
 
+    /** Строковое представление запроса работы */
     @Override
     public String toString() {
         return "Заявка#" + id + " [" + status.getDescription() + "] " + car
