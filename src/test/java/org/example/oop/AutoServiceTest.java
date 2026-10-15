@@ -5,6 +5,7 @@ import org.example.oop.model.*;
 import org.example.oop.service.AutoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.Map;
 
 import java.time.LocalDate;
 
@@ -189,5 +190,35 @@ class AutoServiceTest {
         assertEquals(1, service.getAllRequests().size());
         service.getAllRequests().clear();
         assertEquals(1, service.getAllRequests().size());
+    }
+    @Test
+    void getAverageDurationByAllWorksReturnsMapWithAllWorks() {
+        RepairRequest r1 = service.registerRequest(100L, car, LocalDate.now().plusDays(3));
+        r1.addWork(new Work("Диагностика", 500, 0.5));
+        r1.addWork(new Work("Замена масла", 1500, 1.0));
+
+        RepairRequest r2 = service.registerRequest(101L, car, LocalDate.now().plusDays(3));
+        r2.addWork(new Work("Диагностика", 500, 0.5));
+
+        r1.transitionTo(RequestStatus.DIAGNOSTICS);
+        r1.transitionTo(RequestStatus.APPROVAL);
+        r1.transitionTo(RequestStatus.REPAIR);
+        r1.transitionTo(RequestStatus.READY);
+        r1.transitionTo(RequestStatus.ISSUED);
+
+        r2.transitionTo(RequestStatus.DIAGNOSTICS);
+        r2.transitionTo(RequestStatus.APPROVAL);
+        r2.transitionTo(RequestStatus.REPAIR);
+        r2.transitionTo(RequestStatus.READY);
+        r2.transitionTo(RequestStatus.ISSUED);
+
+
+        Map<String, Double> result = service.getAverageDurationByAllWorks();
+
+        assertEquals(2, result.size());
+        assertTrue(result.containsKey("Диагностика"));
+        assertTrue(result.containsKey("Замена масла"));
+        assertEquals(0.0, result.get("Диагностика"), 0.001);
+        assertEquals(0.0, result.get("Замена масла"), 0.001);
     }
 }

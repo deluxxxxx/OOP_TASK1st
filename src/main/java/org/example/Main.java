@@ -5,6 +5,7 @@ import org.example.oop.service.AutoService;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -106,5 +107,15 @@ public class Main {
                 + service.getAllRequests().stream()
                 .mapToDouble(RepairRequest::calculateTotalCost)
                 .sum() + " руб.");
+
+
+        System.out.printf("  Средний срок по всем завершённым заявкам: %.2f дн.%n",
+                service.getAverageRepairDurationDays());
+
+        System.out.println("  Средний срок по видам работ:");
+        Map<String, Double> byWork = service.getAverageDurationByAllWorks();
+        for (Map.Entry<String, Double> entry : byWork.entrySet()) {
+            System.out.printf("    %-20s %.2f дн.%n", entry.getKey(), entry.getValue());
+        }
     }
 }
