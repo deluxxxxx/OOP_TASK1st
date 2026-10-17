@@ -85,7 +85,7 @@ public class Main {
         System.out.println("  Заявка#" + requests[6].getId() + " → " + requests[6].getStatus());
 
         System.out.println("\n7. Поиск машины по VIN");
-        Car found = service.findCarByVin("VIN0000000000005");
+        Car found = service.findCarByVin("VIN-5");
         System.out.println("  Найдена: " + found);
 
         Car notFound = service.findCarByVin("XXXX-NOPE");

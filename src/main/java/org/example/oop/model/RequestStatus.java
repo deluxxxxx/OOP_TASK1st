@@ -33,7 +33,7 @@ public enum RequestStatus {
      * Проверяет, допустим ли переход из текущего статуса в целевой.
      *
      * @param target целевой статус
-     * @return {@code true}, если переход разрешён, иначе {@code false}
+     * @return true, если переход разрешён, иначе false
      */
     public boolean canTransitionTo(RequestStatus target) {
         if (target == null) {

@@ -108,7 +108,7 @@ public class RepairRequest implements Identifiable {
         if (!this.status.canTransitionTo(newStatus)) {
             throw new InvalidTransitionException(
                     "Недопустимый переход: " + this.status.getDescription()
-                            + " → " + newStatus.getDescription()
+                            + " -> " + newStatus.getDescription()
             );
         }
         history.add(new StatusChange(this.status, newStatus, LocalDateTime.now()));

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * Фиксирует, из какого статуса в какой перешла заявка и когда.
  * @param from      статус, из которого перешли
  * @param to        статус, в который перешли
- * @param timestamp дата и время перехода
+ * @param time дата и время перехода
  */
-public record StatusChange(RequestStatus from, RequestStatus to, LocalDateTime timestamp) {
+public record StatusChange(RequestStatus from, RequestStatus to, LocalDateTime time) {
 }
